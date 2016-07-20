@@ -1,27 +1,25 @@
-for (let a = 3; 3 < 100; a++){
-  console.log(a);
-}
-
-
 class Board {
+  static X = 'x';
+  static O = 'O';
+
   constructor() {
     this.board = [
       [ null, null, null],
       [ null, null, null],
       [ null, null, null],
     ];
+    this.currentPlayer = Board.X;
+  }
 
-
-const X = "x";
-const O = "o";
-const prevPlayer;
-
-function firstPlay (x, o prev) {
-  if (prevPlayer === x) {
-    return 'O plays first';
-  } else {
-    return 'X plays first';
+  play(x, y) {
+    if (this.board[x][y] === null) {
+      this.board[x][y] = this.currentPlayer;
+      this.currentPlayer = this.currentPlayer === Board.X ? Board.O : Board.X;
+    }
   }
 
 }
-firstPlay(X, O, prevPlayer);
+
+const bord = new Board();
+
+board.firstPlay();
